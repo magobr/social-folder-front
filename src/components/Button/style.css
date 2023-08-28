@@ -1,0 +1,27 @@
+.generic_btn button{
+    margin: 5px 0;
+    padding: 7px;
+    min-width: 70px;
+    font-weight: 500;
+    border-radius: 4px;
+    background: var(--main-blue);
+    border: none;
+    color: var(--main-white);
+    cursor: pointer;
+}
+
+.generic_btn.green button{
+    background: var(--main-green);
+    color: var(--main-gray);
+}
+
+.generic_btn button:hover{
+    background: var(--main-white);
+    color: var(--main-blue);
+    transition: .2s;
+}
+
+.generic_btn.green button:hover{
+    background: var(--main-white);
+    color: var(--main-gray);
+}
