@@ -5,7 +5,7 @@ export default function Home() {
     <main>
       <div className="container">
         <div className="content left">
-          <img src={'/logo6.png'} width={500}/>
+          <img src={'/01-branco.svg'} width={200}/>
         </div>
         <div className="content right">
           <Providers>

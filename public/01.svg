@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="49.968 50.132 250.032 149.868" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <bx:grid x="0" y="0" width="50" height="50"/>
+    <bx:guide x="99.981" y="130.404" angle="0"/>
+    <bx:guide x="200" y="122.749" angle="0"/>
+    <bx:guide x="50" y="159.023" angle="0"/>
+    <bx:guide x="250" y="167.579" angle="0"/>
+    <bx:guide x="0" y="0" angle="0"/>
+    <bx:guide x="150" y="125.896" angle="0"/>
+    <bx:guide x="300" y="103.791" angle="0"/>
+    <bx:guide x="-154.765" y="50" angle="90"/>
+    <bx:guide x="-173.824" y="100" angle="90"/>
+    <bx:guide x="-108.933" y="150" angle="90"/>
+    <bx:guide x="-101.219" y="200" angle="90"/>
+    <bx:guide x="-50.395" y="250" angle="90"/>
+    <bx:guide x="-22.261" y="300" angle="90"/>
+    <bx:guide x="330.78" y="350" angle="90"/>
+    <bx:guide x="401.57" y="400" angle="90"/>
+    <bx:guide x="461.923" y="450" angle="90"/>
+    <bx:guide x="125" y="128.575" angle="0"/>
+    <bx:guide x="75" y="121.038" angle="0"/>
+    <bx:guide x="175" y="136.758" angle="0"/>
+    <bx:guide x="225" y="81.931" angle="0"/>
+    <bx:guide x="25" y="87.88" angle="0"/>
+    <bx:guide x="275" y="97.29" angle="0"/>
+    <bx:guide x="-24.304" y="275" angle="90"/>
+  </defs>
+  <path d="M 123.082 92.946 L 99.981 126.874 L 99.981 64.418 C 99.981 56.54 107.455 50.132 116.649 50.132 L 147.251 50.132 C 151.677 50.132 155.922 51.628 159.048 54.308 L 165.948 60.222 C 169.074 62.9 173.32 64.396 177.747 64.396 L 208.322 64.396 C 217.514 64.396 224.989 70.802 224.989 78.682 L 224.989 85.824 L 137.484 85.824 C 131.545 85.824 126.077 88.526 123.082 92.924 L 123.082 92.946 Z M 130.269 96.54 C 131.779 94.33 134.514 92.99 137.484 92.99 L 241.656 92.99 C 244.651 92.99 247.386 94.352 248.87 96.584 C 250.355 98.816 250.355 101.54 248.845 103.748 L 219.677 146.606 C 218.192 148.794 215.457 150.132 212.489 150.132 L 108.314 150.132 C 105.319 150.132 102.586 148.772 101.1 146.54 C 99.617 144.306 99.617 141.584 101.127 139.374 L 130.296 96.516 L 130.269 96.54 Z" style="paint-order: fill; fill-rule: nonzero;"/>
+  <text style="font-family: Poppins; font-size: 22.9868px; font-weight: 700; line-height: 36.7788px; white-space: pre; transform-box: fill-box; transform-origin: 81.7484px 17.4799px;" transform="matrix(0.9979, 0.000383, 0, 1.000576, 31.560328, -58.160439)" x="68.249" y="232.626">Social Folder</text>
+  <text style="fill: rgb(51, 51, 51); font-family: Poppins; font-size: 16px; white-space: pre;" x="75" y="194.483">Seu cartão de visita online</text>
+</svg>

@@ -1,15 +1,13 @@
+import { useCookies } from "react-cookie";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 import FormValidation from "@/components/Forms/FormValidation"
-import ButtonLoginSocial from "@/components/ButtonLoginSocial";
 import { socialFolder } from "@/ultils/apis/socialFolder"
 import { cadastroSchema } from "@/schemas/Cadastro"
 import Input from "@/components/Input"
 import Button from "@/components/Button";
 import Alert from "@/components/Alert";
-
-import { useCookies } from "react-cookie";
-import { BiLogoGoogle, BiLogoFacebook } from "react-icons/bi";
-import { useEffect, useState, useContext } from 'react';
-import { useRouter } from 'next/navigation';
 
 export default function FormCadastro() {
     const [cookies, setCookie] = useCookies(['SOCIAL_USER']);
@@ -126,5 +124,5 @@ export default function FormCadastro() {
                 </div>
             </FormValidation>
         </div>
-    )    
+    )
 }
