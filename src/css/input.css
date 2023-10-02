@@ -3,7 +3,6 @@
     font-size: 14px;
     border: solid 1px var(--main-gray);
     border-radius: 4px;
-    margin: 2px 0;
     background: var(--main-gray);
     color: var(--main-white);
     width: 250px;
@@ -12,6 +11,10 @@
 .generic_field input::placeholder{
     color: var(--main-white);
     font-weight: 500;
+}
+
+.generic_field input:focus{
+    outline: 1px solid var(--ligth-gray);
 }
 
 .generic_field input.error{

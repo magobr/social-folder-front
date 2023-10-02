@@ -1,5 +1,3 @@
-import "./style.css"
-
 type Props = {
     type: "button" | "submit" | "reset" | undefined
     value?: string

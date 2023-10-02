@@ -1,5 +1,3 @@
-import "./style.css"
-import 'animate.css';
 
 type props = {
     message: string | undefined

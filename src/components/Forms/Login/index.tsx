@@ -1,19 +1,43 @@
-import FormValidation from "../FormValidation"
+import FormValidation from "@/components/Forms/FormValidation"
+import ButtonLoginSocial from "@/components/ButtonLoginSocial";
 import { socialFolder } from "@/ultils/apis/socialFolder"
 import { loginSchema } from "@/schemas/Login"
 import Input from "@/components/Input"
 import Button from "@/components/Button";
 import Alert from "@/components/Alert";
 
-import { useState } from 'react';
+import { useCookies } from "react-cookie";
+import { BiLogoGoogle, BiLogoFacebook } from "react-icons/bi";
+import { useEffect, useState, useContext } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function FormLogin() {
+    const [cookies, setCookie] = useCookies(['SOCIAL_USER']);
+    
+    const router = useRouter();
 
+    useEffect(()=>{
+        if(cookies.SOCIAL_USER){
+            router.push("/user", {
+                locale: true,
+                shallow: false
+            });
+
+            // const USER = useContext(cookies.SOCIAL_USER);
+        }
+    },[])
+    
     type messageData = {
         email?: string,
         password?: string,
         geral?: string
     }
+
+    const minuto = 60;
+    const hora = minuto * 60;
+    const dia = hora * 24
+
+    
 
     let [errorMessage, setErrorMessage] = useState<messageData>({
         email: "",
@@ -41,20 +65,29 @@ export default function FormLogin() {
         })
         .then(response => {
             if(!response.data.error){
-                setErrorMessage({
-                    geral: response.data.message,
-                })
-                setAlertShow(true)
-                setAlertStyle("success")
+                setCookie("SOCIAL_USER", response.data.token, {
+                    path: "/",
+                    maxAge: dia * 30
+                });
             }
+
+            router.push("/user");
         })
         .catch(err =>{
-            console.log(err)
-            setErrorMessage({
-                geral: err.response.data.message,
-            })
-            setAlertShow(true)
-            setAlertStyle("error")
+            if (err.hasOwnProperty('response')){
+                setErrorMessage({
+                    geral: err.response.data.message,
+                })
+                setAlertShow(true)
+                setAlertStyle("error")
+            } else {
+                setErrorMessage({
+                    geral: "Ocorreu um erro, por favor tente novamente mais tarde!",
+                })
+                setAlertShow(true)
+                setAlertStyle("error")
+            }
+
         })
     };
 
@@ -81,6 +114,30 @@ export default function FormLogin() {
                 <a href={"#"}>Esqueceu a senha?</a>
                 <Button type="submit" value="Login" content="Login" style={"green"}/>
             </FormValidation>
+
+            <div className={"login__social__area"}>
+                <div className={"buttons"}>
+                    <ButtonLoginSocial
+                        icon={<BiLogoGoogle className={"icons__social"}/>}
+                        background_color={"var(--main-google)"}
+                        style={""}
+                        heft={""}
+                        label={"Google"}
+                    />
+
+                    <ButtonLoginSocial
+                        icon={<BiLogoFacebook className={"icons__social"}/>}
+                        background_color={"var(--main-facebook)"}
+                        style={""}
+                        heft={""}
+                        label={"Facebook"}
+                    />
+                </div>
+            </div>
+
+            <div className={"sigin"}>
+                <a href={"#"}>Cadastre-se</a>
+            </div>
         </div>
     )    
 }

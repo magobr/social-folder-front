@@ -1,17 +1,13 @@
-import { redirect } from 'next/navigation'
-
-import "./page.css"
 import { Providers } from '@/providers'
 
 export default function Home() {
   return (
     <main>
       <div className="container">
-        <div className="content">
-          <h1>SocialFolder</h1>
-          <span>Seu cartão de visita online</span>
+        <div className="content left">
+          <img src={'/logo6.png'} width={500}/>
         </div>
-        <div className="content">
+        <div className="content right">
           <Providers>
           </Providers>
         </div>

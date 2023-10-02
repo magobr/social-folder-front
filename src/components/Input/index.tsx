@@ -1,7 +1,5 @@
 import { Field, useField } from "formik"
 
-import "./style.css"
-
 type Props = {
     type: string
     name: string

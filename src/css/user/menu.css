@@ -1,0 +1,106 @@
+nav.menu{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    background: var(--main-white);
+}
+.menu__user{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.menu__user .item__menu_icon{
+    font-size: 16px;
+    width: min-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu__user .itens__menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.menu__user .item__menu {
+    width: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 15px;
+    height: 100%;
+}
+
+.menu__user a{
+    color: var(--main-black);
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.5;
+    font-weight: 500;
+    height: 100%;
+}
+
+.menu__user a:hover{
+    opacity: 1;
+}
+
+.item__outline {
+    height: 6px;
+    background: var(--main-gray);
+    opacity: 0;
+    bottom: 1px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.menu__user a:hover > .item__outline{
+    opacity: 1;
+}
+
+.itens__user{
+    display: flex;
+}
+
+.itens__user a{
+    opacity: 1;
+}
+
+.item__user{
+    margin: 0 10px
+}
+
+.item__user.perfil__user a{
+    display: flex;
+}
+
+.item__user .item__user_icon{
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    background: var(--main-gray);
+    color: var(--main-white);
+    border-radius: 50px;
+}
+
+.item__user .item__user_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plus__link a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
