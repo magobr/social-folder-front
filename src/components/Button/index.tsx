@@ -3,11 +3,12 @@ type Props = {
     value?: string
     content: string
     style?: "green" | "danger"
+    onClick?: React.MouseEventHandler
 }
 export default function Button(props: Props) {
     return (
         <div className={`generic_btn ${props.style}`}>
-            <button type={props.type} value={props.value}>{props.content}</button>
+            <button onClick={props.onClick} type={props.type} value={props.value}>{props.content}</button>
         </div>
     )
 }

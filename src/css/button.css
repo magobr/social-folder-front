@@ -4,7 +4,7 @@
     min-width: 70px;
     font-weight: 500;
     border-radius: 4px;
-    background: var(--main-blue);
+    background: var(--main-danger);
     border: none;
     color: var(--main-white);
     cursor: pointer;
@@ -17,11 +17,15 @@
 
 .generic_btn button:hover{
     background: var(--main-white);
-    color: var(--main-blue);
+    color: var(--main-danger);
     transition: .2s;
 }
 
 .generic_btn.green button:hover{
     background: var(--main-white);
     color: var(--main-gray);
+}
+
+.button_area{
+    display: flex;
 }

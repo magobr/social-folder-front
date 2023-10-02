@@ -1,7 +1,7 @@
 import FormValidation from "@/components/Forms/FormValidation"
 import ButtonLoginSocial from "@/components/ButtonLoginSocial";
 import { socialFolder } from "@/ultils/apis/socialFolder"
-import { loginSchema } from "@/schemas/Login"
+import { cadastroSchema } from "@/schemas/Cadastro"
 import Input from "@/components/Input"
 import Button from "@/components/Button";
 import Alert from "@/components/Alert";
@@ -10,21 +10,17 @@ import { useCookies } from "react-cookie";
 import { BiLogoGoogle, BiLogoFacebook } from "react-icons/bi";
 import { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from "next/link";
 
-export default function FormLogin() {
+export default function FormCadastro() {
     const [cookies, setCookie] = useCookies(['SOCIAL_USER']);
-    
     const router = useRouter();
 
     useEffect(()=>{
         if(cookies.SOCIAL_USER){
-            router.push("/user", {
-                locale: true,
-                shallow: false
-            });
-
-            // const USER = useContext(cookies.SOCIAL_USER);
+          router.push("/user", {
+              locale: true,
+              shallow: false
+          });
         }
     },[])
     
@@ -38,8 +34,6 @@ export default function FormLogin() {
     const hora = minuto * 60;
     const dia = hora * 24
 
-    
-
     let [errorMessage, setErrorMessage] = useState<messageData>({
         email: "",
         password: "",
@@ -49,8 +43,10 @@ export default function FormLogin() {
     let [alertShow, setAlertShow] = useState(false)
     let [alertStyle, setAlertStyle] = useState("")
 
-    type loginData = {
+    type userData = {
+        name: string,
         email: string,
+        nickname: string,
         password: string
     }
 
@@ -59,17 +55,16 @@ export default function FormLogin() {
         password: null
     }
 
-    const submitContact = async (data: loginData) => {
-        socialFolder.post("/auth", {
+    const submitContact = async (data: userData) => {
+        socialFolder.post("/user", {
+            name: data.name,
             email: data.email,
+            nickname: data.nickname,
             password: data.password
         })
         .then(response => {
             if(!response.data.error){
-                setCookie("SOCIAL_USER", response.data.token, {
-                    path: "/",
-                    maxAge: dia * 30
-                });
+                console.log(response.data);
             }
 
             router.push("/user");
@@ -94,16 +89,29 @@ export default function FormLogin() {
 
     return(
         <div className={"form__login"}>
-            <FormValidation handleSubmit={submitContact} initialValues={initialValues} validationSchema={loginSchema}>
+            <h1>Cadastre-se</h1>
+            <FormValidation handleSubmit={submitContact} initialValues={initialValues} validationSchema={cadastroSchema}>
                 <Alert
                     style={alertStyle}
                     message={errorMessage.geral}
                     show={alertShow}
                 />
                 <Input
+                    placeholder="Nome"
+                    type="text"
+                    name="name"
+                    labelMessage={errorMessage.email}
+                />
+                <Input
                     placeholder="E-mail"
                     type="text"
                     name="email"
+                    labelMessage={errorMessage.password}
+                />
+                <Input
+                    placeholder="Nickname"
+                    type="text"
+                    name="nickname"
                     labelMessage={errorMessage.email}
                 />
                 <Input
@@ -112,33 +120,11 @@ export default function FormLogin() {
                     name="password"
                     labelMessage={errorMessage.password}
                 />
-                <a href={"#"}>Esqueceu a senha?</a>
-                <Button type="submit" value="Login" content="Login" style={"green"}/>
-            </FormValidation>
-
-            <div className={"login__social__area"}>
-                <div className={"buttons"}>
-                    <ButtonLoginSocial
-                        icon={<BiLogoGoogle className={"icons__social"}/>}
-                        background_color={"var(--main-google)"}
-                        style={""}
-                        heft={""}
-                        label={"Google"}
-                    />
-
-                    <ButtonLoginSocial
-                        icon={<BiLogoFacebook className={"icons__social"}/>}
-                        background_color={"var(--main-facebook)"}
-                        style={""}
-                        heft={""}
-                        label={"Facebook"}
-                    />
+                <div className={'button_area'}>
+                    <Button type="submit" value="Cadastrar" content="Cadastrar" style={"green"}/>
+                    <Button onClick={()=> router.back() } type="button" value="voltar" content="voltar" style={"danger"}/>
                 </div>
-            </div>
-
-            <div className={"sigin"}>
-                <Link href={"/cadastro"}>Cadastre-se</Link>
-            </div>
+            </FormValidation>
         </div>
     )    
 }

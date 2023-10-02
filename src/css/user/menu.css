@@ -93,6 +93,10 @@ nav.menu{
     border-radius: 50px;
 }
 
+.icon_logout{
+    font-size: 22px;
+}
+
 .item__user .item__user_name{
     display: flex;
     justify-content: center;

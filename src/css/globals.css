@@ -33,3 +33,7 @@ a:hover{
 }
 
 body { background: var(--main-black); color: var(--main-white); font-family: 'Poppins', sans-serif;}
+
+h1 {
+    margin: 10px 0;
+}

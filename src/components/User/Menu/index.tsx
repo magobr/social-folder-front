@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { HiHome, HiBell, HiMail, HiUser} from "react-icons/hi"
+import { HiHome, HiBell, HiMail, HiUser, HiOutlineLogout} from "react-icons/hi"
+import { useCookies } from "react-cookie";
+import { useRouter } from 'next/navigation';
 
 type props = {
     userName: string,
@@ -8,6 +10,14 @@ type props = {
 }
 
 export default function Menu (props: props) {
+    const [cookies, setCookie, removeCookie] = useCookies(['SOCIAL_USER']);
+    const router = useRouter();
+
+    function logout() {
+        removeCookie('SOCIAL_USER');
+        router.push("/");
+    }
+    
     return (
         <nav className={"menu"}>
             <div className={"menu__user"}>
@@ -50,6 +60,7 @@ export default function Menu (props: props) {
                         </Link>
                     </div>
                     <div className={"item__user plus__link"}><Link href={""}>+ Link</Link></div>
+                    <div className={"item__user plus__link"}><Link href={""} onClick={()=> logout()}><HiOutlineLogout className={"icon_logout"}/></Link></div>
                 </div>
             </div>
         </nav>
